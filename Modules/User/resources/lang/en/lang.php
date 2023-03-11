@@ -1,0 +1,10 @@
+<?php
+
+
+return [
+
+    /**
+     * User translations
+     */
+
+];

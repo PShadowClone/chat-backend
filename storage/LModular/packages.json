@@ -1,0 +1,17 @@
+[
+    {
+        "package": "User",
+        "fullPath": "Modules\/User",
+        "createdAt": "2023-03-09 10:03:21"
+    },
+    {
+        "package": "Core",
+        "fullPath": "Modules\/Core",
+        "createdAt": "2023-03-09 10:03:30"
+    },
+    {
+        "package": "MongoDb",
+        "fullPath": "Packages\/\/MongoDb",
+        "createdAt": "2023-03-09 10:03:49"
+    }
+]
