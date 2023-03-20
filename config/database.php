@@ -100,6 +100,7 @@ return [
             'database' => env('MONGODB_DATABASE', 'chat'),
             'username' => env('MONGODB_ADMINUSERNAME', 'homestead'),
             'password' => env('MONGODB_ADMINPASSWORD', 'secret'),
+            'use_transactions' => false,
             'options' => [
                 'appname' => 'chat',
             ],

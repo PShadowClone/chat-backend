@@ -11,5 +11,8 @@
 |
 */
 
+Route::get('users', [\User\App\Http\Controllers\Controller::class, 'store']);
 
-Route::post('users', [\User\App\Http\Controllers\Controller::class, 'store']);
+Route::get('test' , function(){
+    return['ee'=>'value'] ;
+});

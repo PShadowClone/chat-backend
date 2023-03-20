@@ -8,7 +8,7 @@ use User\App\Repositories\Repository;
  * @inheritDoc
  * saveAll
  */
-class Service extends \Core\App\Services\Service
+class Service
 {
     protected $repository = Repository::class;
 }

@@ -2,6 +2,8 @@
 
 namespace Core\App\Providers;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -18,10 +20,19 @@ class CoreServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'Core\App\Http\Controllers';
+    /**
+     * list of package's helpers
+     * @author Amr
+     * @var array
+     */
+    protected $helpers = [
 
+        'Methods'
+    ];
     public function boot()
     {
          parent::boot();
+        DB::unsetTransactionManager(); // stop the Transaction
         //public packages resources
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'Core');
         //public packages migrations
@@ -41,6 +52,7 @@ class CoreServiceProvider extends ServiceProvider
     public function register()
     {
          parent::register();
+         $this->registerHelpers();
     }
 
     /**
@@ -69,7 +81,23 @@ class CoreServiceProvider extends ServiceProvider
            Route::middleware('web')
                ->namespace($this->namespace)
                ->group(base_path('Modules/Core/routes/web.php'));
+
        }
+
+
+    /**
+     * register package's helpers
+     * @author Amr
+     */
+    function registerHelpers()
+    {
+        foreach ($this->helpers as $helper) {
+            $helper_path = __DIR__ . '/../Helpers/' . $helper . '.php';
+            if (File::isFile($helper_path)) {
+                require_once $helper_path;
+            }
+        }
+    }
 
        /**
         * Define the "api" routes for the application.

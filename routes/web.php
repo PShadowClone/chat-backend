@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    dd(app(\MongoDb\Properties\Connection::class));
+    dd(\App\Models\User::all());
 // Manager Class
-    $manager = new MongoDB\Driver\Manager("mongodb://mongo:27017" , [
+    $manager = new MongoDB\Driver\Manager("mongodb://mongo:27017", [
         'username' => 'root',
         'password' => 'example'
     ]);

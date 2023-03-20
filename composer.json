@@ -10,10 +10,12 @@
     "require": {
         "php": "^8.2",
         "guzzlehttp/guzzle": "^7.2",
+        "jenssegers/mongodb": "dev-master",
         "l-modular/package": "2.0.x-dev",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "red-code/master-package": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -29,7 +31,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "Modules/Core/app/Helpers/Methods.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

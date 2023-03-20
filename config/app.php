@@ -155,6 +155,7 @@ return [
     */
 
     'providers' => [
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
         \MongoDb\MongoDbServiceProvider::class,
         Core\App\Providers\CoreServiceProvider::class,
         User\App\Providers\UserServiceProvider::class,
