@@ -41,7 +41,9 @@
             "Tests\\": "tests/",
             "User\\App\\": "Modules/User/app",
             "Core\\App\\": "Modules/Core/app",
-            "MongoDb\\": "Packages//MongoDb/src"
+            "MongoDb\\": "Packages//MongoDb/src",
+            "Auth\\App\\": "Modules/Auth/app",
+            "Image\\App\\": "Modules/Image/app"
         }
     },
     "scripts": {

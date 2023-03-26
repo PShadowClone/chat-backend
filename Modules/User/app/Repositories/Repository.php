@@ -2,24 +2,25 @@
 
 namespace User\App\Repositories;
 
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use User\App\Models\User;
 
 class Repository extends \Core\App\Repositories\Repository
 {
-    /**
-     * store new resource
-     *
-     * @param Request $request
-     * @return mixed
-     *
-     * @author Amr
-     */
-    function store(Request $request)
+    public function updateProfile(Request $request)
     {
-        $model = $this->getModel()->create($this->getRequestAttributes($request));
-        $__hasRelation = $this->hasRelation();
-        if ($__hasRelation)
-            $this->storeRelation($request, $model);
-        return $this->collection($model);
+        $user = User::findOrFail(authenticated_id());
+        $data = $request->only($user->getFillable());
+        try {
+            $newAvatar = upload_file($request->file('avatar'), '/avatars');
+            delete_file($user->avatar);
+            $user->avatar = $newAvatar;
+        } catch (FileNotFoundException $fileNotFoundException) {
+        }
+        $user->fill(collect($data)->except(['avatar'])->toArray());
+        $user->save();
+        return $this->collection($user , false, 'UpdatingProfile');
     }
 }

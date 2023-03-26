@@ -13,5 +13,15 @@
         "package": "MongoDb",
         "fullPath": "Packages\/\/MongoDb",
         "createdAt": "2023-03-09 10:03:49"
+    },
+    {
+        "package": "Auth",
+        "fullPath": "Modules\/Auth",
+        "createdAt": "2023-03-21 11:03:07"
+    },
+    {
+        "package": "Image",
+        "fullPath": "Modules\/Image",
+        "createdAt": "2023-03-23 10:03:46"
     }
 ]

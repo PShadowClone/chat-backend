@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('users', [\User\App\Http\Controllers\Controller::class, 'store']);
-
-Route::get('test' , function(){
-    return['ee'=>'value'] ;
+Route::post('users', [\User\App\Http\Controllers\Controller::class, 'store']);
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::get('users', [\User\App\Http\Controllers\Controller::class, 'index']);
+    Route::post('users/profile', [\User\App\Http\Controllers\Controller::class, 'updateProfile']);
 });
+

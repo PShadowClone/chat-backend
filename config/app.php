@@ -155,6 +155,8 @@ return [
     */
 
     'providers' => [
+        Image\App\Providers\ImageServiceProvider::class,
+        Auth\App\Providers\AuthServiceProvider::class,
         Jenssegers\Mongodb\MongodbServiceProvider::class,
         \MongoDb\MongoDbServiceProvider::class,
         Core\App\Providers\CoreServiceProvider::class,

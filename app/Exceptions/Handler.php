@@ -44,21 +44,11 @@ class Handler extends ExceptionHandler
      */
     public function register(): void
     {
-
         $this->renderable(function (ValidationException $e, Request $request) {
-
             if ($request->is('api/*')) {
-                $result =  response()->vue($e->status, $e->getMessage(), $e->errors())
-                    ->header('Content-Type', 'application/json')
-                    ->header('Accept', 'application/json')
-                    ->header('X-Custom-Header', 'custom value');
-
-                return $result;
-
+                return response()->vue($e->status, $e->getMessage(), $e->errors());
             }
-        })->renderable(function(Throwable $e){
-           return  response()->vue(ERROR_RESPONSE, $e->getMessage());
-        });
+        })->renderable(fn(Throwable $e) => dd($e));
 
     }
 }

@@ -8140,7 +8140,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "jenssegers/mongodb": 20,
-        "l-modular/package": 20
+        "l-modular/package": 20,
+        "red-code/master-package": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
