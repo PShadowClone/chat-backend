@@ -7,7 +7,7 @@ services:
             args:
                 WWWGROUP: '${WWWGROUP}'
                 MONGODB_HOST: 'mongodb'
-        image: sail-8.2/app
+        image: amrsaidam/chat-backend
 #        extra_hosts:
 #            - 'host.docker.internal:host-gateway'
         ports:
