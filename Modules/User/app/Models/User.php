@@ -2,6 +2,7 @@
 
 namespace User\App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
@@ -12,6 +13,7 @@ use Image\App\Models\Image;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
+use User\App\Http\Filters\UserFilter;
 
 class User extends Authenticatable
 {
@@ -48,6 +50,17 @@ class User extends Authenticatable
             get: fn(string $value) => $value,
             set: fn(string $value) => bcrypt($value),
         );
+    }
+
+    /**
+     * @param Builder $builder
+     * @param $request
+     * @return Builder|void
+     * @throws \Exception
+     */
+    public function scopeFilter($builder, $request)
+    {
+        return (new UserFilter($request))->filter($builder);
     }
 
 }
