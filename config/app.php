@@ -155,6 +155,8 @@ return [
     */
 
     'providers' => [
+        Message\App\Providers\MessageServiceProvider::class,
+        Conversion\App\Providers\ConversionServiceProvider::class,
         Image\App\Providers\ImageServiceProvider::class,
         Auth\App\Providers\AuthServiceProvider::class,
         Jenssegers\Mongodb\MongodbServiceProvider::class,
